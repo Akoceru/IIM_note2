@@ -1,0 +1,14 @@
+{% extends '::base.html.twig' %}
+{% block title %}
+    {{ parent() }} - Exam List
+{% endblock %}
+{% block content %}
+<h1>Exams list</h1>
+
+<ul>
+    {% for exam in exams %}
+        <li>{{ exam.name }} - {{ exam.description }} - <a class="btn btn-danger" href="{{ path('exam_delete', {id: exam.id })}}"> delete </a></li>
+    {% endfor %}
+</ul>
+    <a class="btn btn-primary" href="{{ path('exam_add')}}" role="button"> add </a>
+{% endblock %}

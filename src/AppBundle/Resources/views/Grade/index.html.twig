@@ -1,0 +1,14 @@
+{% extends '::base.html.twig' %}
+{% block title %}
+    {{ parent() }} - Grade list
+{% endblock %}
+{% block content %}
+<h1>Grades list</h1>
+
+<ul>
+    {% for grade in grades %}
+        <li class="form-control"> note :{{ grade.mark }} - Etudiant: {{ grade.student }} - Examen: {{ grade.exam }}  <a class="btn btn-danger" href="{{ path('grade_delete', {id: grade.id })}}"> delete </a></li>
+    {% endfor %}
+</ul>
+    - <a class="btn btn-primary" href="{{ path('grade_add')}}" role="button"> add </a>
+{% endblock %}

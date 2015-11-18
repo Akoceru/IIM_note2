@@ -1,0 +1,13 @@
+{% extends '::base.html.twig' %}
+{% block title %}
+    {{ parent() }} - Admin list
+{% endblock %}
+{% block content %}
+<h1>Admins list</h1>
+<ul>
+    {% for admin in admins %}
+        <li>{{ admin.username }} - {{ admin.password }} - <a class="btn btn-danger" href="{{ path('admin_delete', {id: admin.id })}}"> delete </a></li>
+    {% endfor %}
+</ul>
+    <a class="btn btn-primary" href="{{ path('admin_add')}}" role="button"> add </a>
+{% endblock %}
