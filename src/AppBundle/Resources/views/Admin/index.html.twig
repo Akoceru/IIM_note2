@@ -3,11 +3,30 @@
     {{ parent() }} - Admin list
 {% endblock %}
 {% block content %}
-<h1>Admins list</h1>
-<ul>
-    {% for admin in admins %}
-        <li>{{ admin.username }} - {{ admin.password }} - <a class="btn btn-danger" href="{{ path('admin_delete', {id: admin.id })}}"> delete </a></li>
-    {% endfor %}
-</ul>
-    <a class="btn btn-primary" href="{{ path('admin_add')}}" role="button"> add </a>
+    <h1>Exams list</h1>
+
+    <ul>
+        {% for exam in exams %}
+            <li>{{ exam.name }} - {{ exam.description }} - {{ exam.date|date('Y-m-d') }}<a class="btn btn-danger" href="{{ path('exam_delete', {id: exam.id })}}"> delete </a></li>
+        {% endfor %}
+    </ul>
+    <a class="btn btn-primary" href="{{ path('exam_add')}}" role="button"> add </a>
+
+    <h1>Grades list</h1>
+
+    <ul>
+        {% for grade in grades %}
+            <li class="form-control"> note :{{ grade.mark }} - Etudiant: {{ grade.student }} - Examen: {{ grade.exam }}  <a class="btn btn-danger" href="{{ path('grade_delete', {id: grade.id })}}"> delete </a></li>
+        {% endfor %}
+    </ul>
+     <a class="btn btn-primary" href="{{ path('grade_add')}}" role="button"> add </a>
+
+    <h1>Students list</h1>
+
+    <ul>
+        {% for student in students %}
+            <li>{{ student.firstName }} - {{ student.lastName }} - {{ student.email }} - <a class="btn btn-danger" href="{{ path('student_delete', {id: student.id })}}" role="button"> delete </a> </li>
+        {% endfor %}
+    </ul>
+    <a class="btn btn-primary" href="{{ path('student_add')}}" role="button"> add </a>
 {% endblock %}
