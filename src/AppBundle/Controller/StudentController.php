@@ -2,6 +2,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Student;
+use AppBundle\Entity\Grade;
 use AppBundle\Form\StudentType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -21,6 +22,20 @@ class StudentController extends Controller
 
         return $this->render('AppBundle:Student:index.html.twig', [
             'students' => $students
+        ]);
+    }
+
+    /**
+     * @Route("/student/details/{id}", name="student_details")
+     */
+    public function indexidAction($id)
+    {
+        $students = $this->getDoctrine()->getManager()->getRepository('AppBundle:Student')->find($id);
+        $grades = $this->getDoctrine()->getManager()->getRepository('AppBundle:Grade')->find($students);
+        var_dump($grades);
+        return $this->render('AppBundle:Student:single.html.twig', [
+            'students' => $students,
+            'grades' => $grades
         ]);
     }
 

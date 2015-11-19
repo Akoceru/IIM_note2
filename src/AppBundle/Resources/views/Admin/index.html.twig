@@ -25,7 +25,7 @@
 
     <ul>
         {% for student in students %}
-            <li>{{ student.firstName }} - {{ student.lastName }} - {{ student.email }} - <a class="btn btn-danger" href="{{ path('student_delete', {id: student.id })}}" role="button"> delete </a> </li>
+            <li><a href="{{ path('student_details', {id: student.id })}}">{{ student.firstName }} - {{ student.lastName }}</a> - {{ student.email }} - <a class="btn btn-danger" href="{{ path('student_delete', {id: student.id })}}" role="button"> delete </a> </li>
         {% endfor %}
     </ul>
 {% endblock %}
