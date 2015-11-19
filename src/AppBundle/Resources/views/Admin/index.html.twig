@@ -28,4 +28,6 @@
             <li><a href="{{ path('student_details', {id: student.id })}}">{{ student.firstName }} - {{ student.lastName }}</a> - {{ student.email }} - <a class="btn btn-danger" href="{{ path('student_delete', {id: student.id })}}" role="button"> delete </a> <a class="btn btn-warning" href="{{ path('student_update', {id: student.id })}}"> update </a></li>
         {% endfor %}
     </ul>
+    <a class="btn btn-primary" href="{{ path('student_add')}}" role="button"> add </a>
+
 {% endblock %}
