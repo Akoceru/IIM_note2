@@ -17,7 +17,7 @@ class GradeController extends Controller
      */
     public function indexAction()
     {
-        $grades = $this->getDoctrine()->getManager()->getRepository('AppBundle:grade')->findAll();
+        $grades = $this->getDoctrine()->getManager()->getRepository('AppBundle:Grade')->findAll();
 
         return $this->render('AppBundle:grade:index.html.twig', [
             'grades' => $grades
