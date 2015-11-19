@@ -76,4 +76,37 @@ class StudentController extends Controller
 
         return $this->redirectToRoute('student_list');
     }
+
+    /**
+     * @route("/student/update/{id}", name="student_update")
+     */
+
+    public function updateAction($id)
+    {
+        $request = $this->get('request');
+
+        if (is_null($id)) {
+            $examData = $request->get('student');
+            $id = $examData['id'];
+        }
+
+        $em = $this->getDoctrine()->getEntityManager();
+        $student = $em->getRepository('AppBundle:Student')->find($id);
+        $form = $this->createForm(new StudentType(), $student);
+
+        if ($request->getMethod() == 'POST') {
+            $form->handleRequest($request);
+
+            if ($form->isValid()) {
+
+                $em->flush();
+
+                return $this->redirect($this->generateUrl('admin_list'));
+            }
+        }
+
+        return $this->render('AppBundle:Student:update.html.twig', array(
+            'form' => $form->createView()
+        ));
+    }
 }
