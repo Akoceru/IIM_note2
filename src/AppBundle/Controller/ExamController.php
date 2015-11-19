@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 class ExamController extends Controller
 {
     /**
-     * @Route("/admin/exam", name="exam_list")
+     * @Route("/lol/exam", name="exam_list")
      */
     public function indexAction()
     {
