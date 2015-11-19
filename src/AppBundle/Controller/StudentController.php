@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 class StudentController extends Controller
 {
     /**
-     * @Route("/student", name="student_list")
+     * @Route("/admin/student", name="student_list")
      */
     public function indexAction()
     {
