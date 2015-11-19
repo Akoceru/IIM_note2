@@ -13,10 +13,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
  */
 class APIController extends FOSRestController
 {
-
-    /**
-     * @Route("/students", name="api_students")
-     */
     public function getStudentsAction()
     {
 
@@ -30,9 +26,6 @@ class APIController extends FOSRestController
         return $this->handleView($view);
     }
 
-    /**
-     * @Route("/exam", name="api_exam")
-     */
     public function getExamAction()
     {
 
@@ -45,10 +38,7 @@ class APIController extends FOSRestController
 
         return $this->handleView($view);
     }
-
-    /**
-     * @Route("/grade", name="api_grade")
-     */
+    
     public function getGradeAction()
     {
 
