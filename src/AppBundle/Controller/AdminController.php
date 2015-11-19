@@ -17,10 +17,16 @@ class AdminController extends Controller
      */
     public function indexAction()
     {
-        $admins = $this->getDoctrine()->getManager()->getRepository('AppBundle:Admin')->findAll();
+        $students = $this->getDoctrine()->getManager()->getRepository('AppBundle:Student')->findAll();
+        $exams = $this->getDoctrine()->getManager()->getRepository('AppBundle:Exam')->findAll();
+        $grades = $this->getDoctrine()->getManager()->getRepository('AppBundle:Grade')->findAll();
 
         return $this->render('AppBundle:Admin:index.html.twig', [
-            'admins' => $admins
+
+            'students' => $students,
+            'exams' => $exams,
+            'grades' => $grades,
+
         ]);
     }
     /**
@@ -64,4 +70,6 @@ class AdminController extends Controller
 
         return $this->redirectToRoute('admin_list');
     }
+
+
 }
