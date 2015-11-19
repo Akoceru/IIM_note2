@@ -1,0 +1,13 @@
+{% extends '::base.html.twig' %}
+{% block title %}
+    {{ parent() }} -  Update a student
+{% endblock %}
+{% block content %}
+    <title>Update a student</title>
+
+    {{ form_start(form) }}
+    {{ form_rest(form) }}
+
+    <input type="submit" value="Save" class="btn btn-default">
+    {{ form_end(form) }}
+{% endblock %}
