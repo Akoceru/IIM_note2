@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+{{ parent() }} - Fiche étudiant - {{ students.firstName }} {{ students.lastName }}
+{% endblock %}
+{% block content %}
+<h1>{{ students.firstName }} {{ students.lastName }}</h1>
+
+<ul>
+    {% for grade in grades %} }}
+	<li>
+		Note :  {{ grade.mark }} - {{ grade.student.firstName }}
+	</li>
+    {% endfor %}
+</ul>
+
+
+
+
+{% endblock %}
