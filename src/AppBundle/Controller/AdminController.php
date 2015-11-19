@@ -31,10 +31,14 @@ class AdminController extends Controller
         $admin = new Admin();
         $form = $this->createForm(new AdminType(),$admin);
 
-        if($request->isMethod('POST') && $form->handleRequest($request) && $form->isValid()){
-            $db = $this->getDoctrine()->getManager();
-            $db->persist($admin);
-            $db->flush();
+        if($request->isMethod('POST')
+            && $form->handleRequest($request)
+            && $form->isValid()){
+
+            $admin->setRoles(['ROLE_SUPER_ADMIN'])
+                ->setEnabled(1);
+            $this->get('fos_user.user_manager')->updateUser($admin);
+
 
             return $this->redirectToRoute('admin_list');
         }

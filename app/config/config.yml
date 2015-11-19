@@ -94,3 +94,9 @@ easy_admin:
 fos_rest:
     routing_loader:
         default_format: json
+
+# app/config/config.yml
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: AppBundle\Entity\Admin
