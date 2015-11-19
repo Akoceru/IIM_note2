@@ -17,7 +17,7 @@ class ExamController extends Controller
      */
     public function indexAction()
     {
-        $exams = $this->getDoctrine()->getManager()->getRepository('AppBundle:exam')->findAll();
+        $exams = $this->getDoctrine()->getManager()->getRepository('AppBundle:Exam')->findAll();
 
         return $this->render('AppBundle:Exam:index.html.twig', [
             'exams' => $exams
