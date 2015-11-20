@@ -28,11 +28,11 @@ class StudentController extends Controller
     /**
      * @Route("/student/details/{id}", name="student_details")
      */
-    public function indexidAction($id)
+    public function indexIdAction($id)
     {
         $students = $this->getDoctrine()->getManager()->getRepository('AppBundle:Student')->find($id);
-        $grades = $this->getDoctrine()->getManager()->getRepository('AppBundle:Grade')->findBy(["studentid" => $id]);
-        var_dump($grades);
+        $grades = $students->getGrades();
+
         return $this->render('AppBundle:Student:single.html.twig', [
             'students' => $students,
             'grades' => $grades
