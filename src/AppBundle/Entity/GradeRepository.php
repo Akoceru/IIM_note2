@@ -1,6 +1,7 @@
 <?php
 
 namespace AppBundle\Entity;
+use Doctrine\ORM\AbstractQuery;
 
 /**
  * GradeRepository
@@ -10,4 +11,15 @@ namespace AppBundle\Entity;
  */
 class GradeRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findApi($id = null)
+    {
+        $qb = $this->createQueryBuilder('s');
+        if(null !== $id)
+        {
+            $qb
+                ->where('s.id = :student_id')
+                ->setParameter(':student_id', $id);
+        }
+        return null === $id ? $qb->getQuery()->getArrayResult() : $qb->getQuery()->getSingleResult(AbstractQuery::HYDRATE_ARRAY);
+    }
 }

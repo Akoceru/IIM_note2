@@ -31,7 +31,7 @@ class StudentController extends Controller
     public function indexidAction($id)
     {
         $students = $this->getDoctrine()->getManager()->getRepository('AppBundle:Student')->find($id);
-        $grades = $this->getDoctrine()->getManager()->getRepository('AppBundle:Grade')->find($students);
+        $grades = $this->getDoctrine()->getManager()->getRepository('AppBundle:Grade')->findBy(["studentid" => $id]);
         var_dump($grades);
         return $this->render('AppBundle:Student:single.html.twig', [
             'students' => $students,
