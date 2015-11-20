@@ -38,7 +38,7 @@ class APIController extends FOSRestController
 
         return $this->handleView($view);
     }
-    
+
     public function getGradeAction()
     {
 

@@ -1,12 +1,18 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Utilisateur
+ * Date: 20/11/2015
+ * Time: 18:49
+ */
 
 namespace AppBundle\Tests;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class StudentControllerTest extends WebTestCase
+class GradeControllerTest extends WebTestCase
 {
-    public function testStudent()
+    public function testGrade()
     {
         $client = static::createClient();
 
@@ -24,10 +30,10 @@ class StudentControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/admin');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertContains('Student', $client->getResponse()->getContent());
+        $this->assertContains('Grade', $client->getResponse()->getContent());
     }
 
-    public function testStudentAdd()
+    public function gradeStudentAdd()
     {
         $client = static::createClient();
 
@@ -50,7 +56,7 @@ class StudentControllerTest extends WebTestCase
 
 
 
-        $crawler = $client->request('POST', '/admin/student/add');
+        $crawler = $client->request('POST', '/admin/grade/add');
 
         $form = $crawler->selectButton('save')->form();
 
@@ -66,7 +72,7 @@ class StudentControllerTest extends WebTestCase
         $this->assertContains('John - Doe', $client->getResponse()->getContent());
     }
 
-    public function testStudentDelete()
+    public function gradeStudentDelete()
     {
         $client = static::createClient();
 
