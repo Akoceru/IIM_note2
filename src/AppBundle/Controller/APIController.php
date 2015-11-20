@@ -26,6 +26,17 @@ class APIController extends FOSRestController
         return $this->handleView($view);
     }
 
+    public function getGradesAction($id)
+    {
+
+        $students = $this->getDoctrine()->getManager()->getRepository('AppBundle:Student')->find($id);
+        $grades = $students->getGrades();
+        $view = $this->view($grades, 200)
+        ;
+
+        return $this->handleView($view);
+    }
+
     public function getExamAction()
     {
 

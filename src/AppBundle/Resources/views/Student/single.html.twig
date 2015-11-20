@@ -4,14 +4,16 @@
 {% endblock %}
 {% block content %}
 <h1>{{ students.firstName }} {{ students.lastName }}</h1>
-	Notes :
+
 <ul>
-    {% for grade in grades %}
+    {% for grade in grades %} 
 	<li>
-	  {{ grade.exam }}  : {{ grade.mark }}
+		Note :  {{ grade.mark }} - {{ grade.exam }}
 	</li>
     {% endfor %}
 </ul>
+
+
 
 
 {% endblock %}
