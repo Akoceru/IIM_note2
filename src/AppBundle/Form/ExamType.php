@@ -17,6 +17,7 @@ class ExamType extends AbstractType
         $builder
             ->add('name')
             ->add('description')
+            ->add('date')
         ;
     }
     

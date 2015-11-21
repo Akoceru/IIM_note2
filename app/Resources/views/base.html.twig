@@ -40,7 +40,9 @@
                 <li><a href="{{path('grade_list')}}">Grade list</a></li>
                 <li><a href="{{path('exam_list')}}">Exam list</a></li>
                 {% if app.user %}
-                <li><a href="{{path('fos_user_security_logout')}}">Logout</a></li>
+                    <li><a href="{{path('fos_user_security_logout')}}">Logout</a></li>
+                {% else %}
+                    <li><a href="{{path('fos_user_security_login')}}">Login</a></li>
                 {%  endif %}
             </ul>
         </div><!--/.nav-collapse -->
