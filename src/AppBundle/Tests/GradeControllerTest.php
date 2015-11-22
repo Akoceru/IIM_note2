@@ -88,12 +88,12 @@ class GradeControllerTest extends WebTestCase
 
         $client->submit($form);
 
-        $crawler = $client->request('POST', '/admin/student/add');
+        $crawler = $client->request('POST', '/admin/grade/add');
 
         $form = $crawler->selectButton('save')->form();
 
-        $form['appbundle_student[email]'] = 'John@doe.com';
-        $form['appbundle_student[firstName]'] = 'lel';
+        $form['appbundle_grade[mark]'] = '15';
+        $form['appbundle_grade[student]'] = 'lel';
         $form['appbundle_student[lastName]'] = 'leel';
 
         $client->submit($form);

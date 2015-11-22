@@ -84,7 +84,7 @@ class StudentControllerTest extends WebTestCase
 
         $crawler = $client->request('POST', '/admin/student/add');
 
-        $form = $crawler->selectButton('save')->form();
+        $form = $crawler->selectButton('Sauvegarder')->form();
 
         $form['appbundle_student[email]'] = 'John@doe.com';
         $form['appbundle_student[firstName]'] = 'lel';
@@ -94,7 +94,7 @@ class StudentControllerTest extends WebTestCase
 
         $crawler = $client->request('GET', '/admin');
 
-        $link = $crawler->selectLink('delete')->link();
+        $link = $crawler->filter('a.student_delete')->first()->link();
 
 
         $client->click($link);
