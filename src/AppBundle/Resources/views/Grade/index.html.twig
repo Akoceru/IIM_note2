@@ -3,11 +3,26 @@
     {{ parent() }} - Grade list
 {% endblock %}
 {% block content %}
-<h1>Grades list</h1>
+<h1 class="text-center">Grades list</h1>
 
-<ul>
+<div class="col-md-12">
+  <table class="table table-striped ">
+    <thead>
+      <tr>
+        <th>Élève</th>
+        <th>Examen</th>
+        <th>Note</th>
+      </tr>
+    </thead>
+    <tbody>
     {% for grade in grades %}
-        <li class="form-control"> note :{{ grade.mark }} - Etudiant: {{ grade.student }} - Examen: {{ grade.exam }}</li>
+          <tr>
+            <td>{{ grade.student }}</td>
+            <td>{{ grade.exam }}</td>
+            <td>{{ grade.mark }}</td>
+          </tr>
     {% endfor %}
-</ul>
+    </tbody>
+  </table>
+</div>
 {% endblock %}

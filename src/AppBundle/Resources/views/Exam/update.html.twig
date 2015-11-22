@@ -3,11 +3,11 @@
     {{ parent() }} - Update an exam
 {% endblock %}
 {% block content %}
-    <title>Update a exam</title>
+<h1 class="text-center">Update an exam</h1>
 
-    {{ form_start(form) }}
-    {{ form_rest(form) }}
+{{ form_start(form) }}
+  {{ form_rest(form) }}
 
-    <input type="submit" value="Save" class="btn btn-default">
-    {{ form_end(form) }}
+  <input class="btn-or" type="submit" value="Sauvegarder" />
+{{ form_end(form) }}
 {% endblock %}

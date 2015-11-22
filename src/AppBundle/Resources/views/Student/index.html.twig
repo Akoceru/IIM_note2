@@ -3,11 +3,28 @@
     {{ parent() }} - Student list
 {% endblock %}
 {% block content %}
-<h1>Students list</h1>
+<h1 class="text-center">Students list</h1>
 
-<ul>
-    {% for student in students %}
-        <li>{{ student.firstName }} - {{ student.lastName }} - {{ student.email }} </li>
-    {% endfor %}
-</ul>
+        <div class="col-md-12 bloc-tab">
+          <table class="table table-striped ">
+            <thead>
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for student in students %}
+
+                  <tr>
+                    <td><a class="link-single" href="{{path ('student_details', {id: student.id}) }}">{{ student.firstName }}</a></td>
+                    <td>{{ student.lastName }}</td>
+                    <td>{{ student.email }}</td>
+                  </tr>
+
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
 {% endblock %}

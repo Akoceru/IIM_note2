@@ -11,6 +11,15 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class StudentController extends Controller
 {
+
+    /**
+     * @Route("/", name="homepage")
+     */
+     public function homepage()
+     {
+       return $this->render('AppBundle:Homepage:index.html.twig');
+     }
+
     /**
      * @Route("/student", name="student_list")
      */

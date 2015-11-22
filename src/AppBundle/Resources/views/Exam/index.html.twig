@@ -3,11 +3,26 @@
     {{ parent() }} - Exam List
 {% endblock %}
 {% block content %}
-<h1>Exams list</h1>
+<h1 class="text-center">Exams list</h1>
 
-<ul>
-    {% for exam in exams %}
-        <li>{{ exam.name }} - {{ exam.description }} - {{ exam.date|date('Y-m-d') }}</li>
-    {% endfor %}
-</ul>
+        <div class="col-md-12">
+          <table class="table table-striped ">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for exam in exams %}          
+                  <tr>
+                    <td>{{ exam.name }}</td>
+                    <td>{{ exam.description }}</td>
+                    <td>{{ exam.date|date('Y-m-d') }}</td>
+                  </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
 {% endblock %}

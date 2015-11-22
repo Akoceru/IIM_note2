@@ -3,16 +3,26 @@
 {{ parent() }} - Fiche étudiant - {{ students.firstName }} {{ students.lastName }}
 {% endblock %}
 {% block content %}
-<h1>{{ students.firstName }} {{ students.lastName }}</h1>
+<h1 class="text-center">{{ students.firstName }} {{ students.lastName }}</h1>
 
-<ul>
-    {% for grade in grades %} 
-	<li>
-		Note :  {{ grade.mark }} - {{ grade.exam }}
-	</li>
+<div class="col-md-12">
+  <table class="table table-striped single-tab">
+    <thead>
+      <tr>
+        <th>Examen</th>
+        <th>Note</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for grade in grades %}
+          <tr>
+            <td>{{ grade.exam }}</td>
+            <td>{{ grade.mark }}</td>
+          </tr>
     {% endfor %}
-</ul>
-
+    </tbody>
+  </table>
+</div>
 
 
 
