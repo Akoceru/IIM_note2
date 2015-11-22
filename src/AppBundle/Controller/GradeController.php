@@ -58,7 +58,7 @@ class GradeController extends Controller
         $db->remove($grade);
         $db->flush();
 
-        return $this->redirectToRoute('grade_list');
+        return $this->redirectToRoute('admin_list');
     }
 
     /**

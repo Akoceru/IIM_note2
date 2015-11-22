@@ -59,7 +59,7 @@ class ExamController extends Controller
         $db->remove($student);
         $db->flush();
 
-        return $this->redirectToRoute('exam_list');
+        return $this->redirectToRoute('admin_list');
     }
 
     /**

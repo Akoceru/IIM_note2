@@ -70,7 +70,7 @@ class StudentController extends Controller
             ->find($id);
         $db->remove($student);
         $db->flush();
-        return $this->redirectToRoute('student_list');
+        return $this->redirectToRoute('admin_list');
     }
     /**
      * @route("/student/update/{id}", name="student_update")
