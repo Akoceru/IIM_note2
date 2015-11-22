@@ -136,8 +136,28 @@ a:hover{
 }*/
 
 .icon-plus{
+  padding-left: 15px;
+  color: #fff;
+}
+
+.icon-plus:hover{
+  color: #fff;
+}
+
+span{
+  font-family: 'Raleway', sans-serif;
   float: right;
   color: #fff;
+  text-decoration: underline;
+}
+
+span:hover{
+  color: #fff;
+  text-decoration: none;
+}
+
+.test{
+  float: right;
 }
 
 .navbar-default{
@@ -238,4 +258,45 @@ label{
 .error-log{
   color: #BF6602;
   padding-top: 10px;
+}
+
+
+#p_stud{
+  color: #fff;
+  font-size: 22px;
+}
+
+clearboth{
+  clear: both;
+}
+
+.header-tab{
+  width: 100%;
+  text-align: center;
+}
+
+#h3-name{
+  display: inline-block;
+  float: left;
+}
+
+#h3-btn{
+  display: inline-block;
+  float: right;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  font-size: 18px;
+  width: 150px;
+}
+
+#h3-btn:hover{
+  background-color: #BF6602;
+  color: #fff;
+  border: 2px solid #BF6602;
+  padding: 6px;
+}
+
+#h3-btn a{
+  text-decoration: none;
+  color: #fff;
 }
