@@ -53,7 +53,7 @@ class StudentController extends Controller
             $db = $this->getDoctrine()->getManager();
             $db->persist($student);
             $db->flush();
-            return $this->redirectToRoute('student_list');
+            return $this->redirectToRoute('admin_list');
         }
         return $this->render('AppBundle:Student:add.html.twig', [
             'form' => $form->createView()

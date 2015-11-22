@@ -36,7 +36,7 @@ class GradeController extends Controller
             $db->persist($grade);
             $db->flush();
 
-            return $this->redirectToRoute('grade_list');
+            return $this->redirectToRoute('admin_list');
         }
 
         return $this->render('AppBundle:Grade:add.html.twig', [

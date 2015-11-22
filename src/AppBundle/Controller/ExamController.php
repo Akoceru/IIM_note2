@@ -37,7 +37,7 @@ class ExamController extends Controller
             $db->persist($exam);
             $db->flush();
 
-            return $this->redirectToRoute('exam_list');
+            return $this->redirectToRoute('admin_list');
         }
 
         return $this->render('AppBundle:Exam:add.html.twig', [
