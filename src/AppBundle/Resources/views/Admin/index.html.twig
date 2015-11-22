@@ -7,14 +7,17 @@
 
 <div class="row">
   <div class="col-md-12 bloc-tab">
-  <h3>Liste Student</h3>
-    <table class="table table-striped ">
+  <div class="header-tab">
+    <h3 id="h3-name">Students list</h3>
+    <h3 id="h3-btn"><a href="{{path ('student_add') }}">Add<div class="glyphicon glyphicon-plus icon-plus"></div></a></h3>
+  </div>
+    <table class="table table-striped tets">
       <thead>
         <tr>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Email</th>
-          <th>Button <a class="glyphicon glyphicon-plus icon-plus" href="{{path ('student_add') }}"></a></th>
+          <th>Button</th>
         </tr>
       </thead>
         <tbody>
@@ -42,14 +45,17 @@
 
 <div class="row bloc-2-tab">
   <div class="col-md-6">
-  <h3>Liste Exam</h3>
+    <div class="header-tab">
+      <h3 id="h3-name">Exams list</h3>
+      <h3 id="h3-btn"><a href="{{path ('exam_add') }}">Add<div class="glyphicon glyphicon-plus icon-plus"></div></a></h3>
+    </div>
     <table class="table table-striped ">
       <thead>
         <tr>
           <th>Name</th>
           <th>Description</th>
           <th>Date</th>
-          <th>Button <a class="glyphicon glyphicon-plus icon-plus" href="{{path ('exam_add') }}"></a></th>
+          <th>Button</a></th>
         </tr>
       </thead>
         <tbody>
@@ -74,14 +80,17 @@
     </table>
   </div>
   <div class="col-md-6">
-  <h3>Liste Grade</h3>
+    <div class="header-tab">
+      <h3 id="h3-name">Grades list</h3>
+      <h3 id="h3-btn"><a href="{{path ('grade_add') }}">Add<div class="glyphicon glyphicon-plus icon-plus"></div></a></h3>
+    </div>
     <table class="table table-striped tab-grade">
       <thead>
         <tr>
           <th>Élève</th>
           <th>Examen</th>
           <th>Note</th>
-          <th>Button<a class="glyphicon glyphicon-plus icon-plus" href="{{path ('grade_add') }}"></a></th>
+          <th>Button</th>
         </tr>
       </thead>
         <tbody>
