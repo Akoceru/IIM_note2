@@ -1,12 +1,18 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Utilisateur
+ * Date: 20/11/2015
+ * Time: 18:49
+ */
 
 namespace AppBundle\Tests;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class StudentControllerTest extends WebTestCase
+class ExamControllerTest extends WebTestCase
 {
-    public function testStudent()
+    public function testExam()
     {
         $client = static::createClient();
 
@@ -24,10 +30,10 @@ class StudentControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/admin');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertContains('Student', $client->getResponse()->getContent());
+        $this->assertContains('Grade', $client->getResponse()->getContent());
     }
 
-    public function testStudentAdd()
+    public function testExamAdd()
     {
         $client = static::createClient();
 
@@ -46,27 +52,27 @@ class StudentControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/admin');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertContains('Student', $client->getResponse()->getContent());
+        $this->assertContains('Grade', $client->getResponse()->getContent());
 
 
 
-        $crawler = $client->request('POST', '/admin/student/add');
+        $crawler = $client->request('POST', '/admin/exam/add');
 
         $form = $crawler->selectButton('Save')->form();
 
-        $form['appbundle_student[email]'] = 'John@doe.com';
-        $form['appbundle_student[firstName]'] = 'John';
-        $form['appbundle_student[lastName]'] = 'Doe';
+        $form['appbundle_exam[name]'] = 'my new exam';
+        $form['appbundle_exam[description]'] = 'new exam';
+
 
         $client->submit($form);
 
         $client->request('GET', '/admin');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertContains('John@doe', $client->getResponse()->getContent());
+        $this->assertContains('my new exam', $client->getResponse()->getContent());
     }
 
-    public function testStudentDelete()
+    public function testExamDelete()
     {
         $client = static::createClient();
 
@@ -82,19 +88,18 @@ class StudentControllerTest extends WebTestCase
 
         $client->submit($form);
 
-        $crawler = $client->request('POST', '/admin/student/add');
+        $crawler = $client->request('POST', '/admin/exam/add');
 
         $form = $crawler->selectButton('Save')->form();
 
-        $form['appbundle_student[email]'] = 'leel@lel.com';
-        $form['appbundle_student[firstName]'] = 'lel';
-        $form['appbundle_student[lastName]'] = 'leel';
+        $form['appbundle_exam[name]'] = 'another';
+        $form['appbundle_exam[description]'] = 'anotherone';
 
         $client->submit($form);
 
         $crawler = $client->request('GET', '/admin');
 
-        $link = $crawler->filter('a.student_delete')->first()->link();
+        $link = $crawler->filter('a.exam_delete')->first()->link();
 
 
         $client->click($link);

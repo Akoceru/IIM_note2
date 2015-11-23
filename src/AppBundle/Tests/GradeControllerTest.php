@@ -33,7 +33,7 @@ class GradeControllerTest extends WebTestCase
         $this->assertContains('Grade', $client->getResponse()->getContent());
     }
 
-    public function gradeStudentAdd()
+    public function testGradeAdd()
     {
         $client = static::createClient();
 
@@ -52,27 +52,27 @@ class GradeControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/admin');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertContains('Student', $client->getResponse()->getContent());
+        $this->assertContains('Grade', $client->getResponse()->getContent());
 
 
 
         $crawler = $client->request('POST', '/admin/grade/add');
 
-        $form = $crawler->selectButton('save')->form();
+        $form = $crawler->selectButton('Save')->form();
 
-        $form['appbundle_student[email]'] = 'John@doe.com';
-        $form['appbundle_student[firstName]'] = 'John';
-        $form['appbundle_student[lastName]'] = 'Doe';
+        $form['appbundle_grade[mark]'] = '-15';
+        $form['appbundle_grade[student]'] = '';
+        $form['appbundle_grade[exam]'] = '';
 
         $client->submit($form);
 
         $client->request('GET', '/admin');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertContains('John - Doe', $client->getResponse()->getContent());
+        $this->assertContains('-15', $client->getResponse()->getContent());
     }
 
-    public function gradeStudentDelete()
+    public function testGradeDelete()
     {
         $client = static::createClient();
 
@@ -90,24 +90,24 @@ class GradeControllerTest extends WebTestCase
 
         $crawler = $client->request('POST', '/admin/grade/add');
 
-        $form = $crawler->selectButton('save')->form();
+        $form = $crawler->selectButton('Save')->form();
 
         $form['appbundle_grade[mark]'] = '15';
-        $form['appbundle_grade[student]'] = 'lel';
-        $form['appbundle_student[lastName]'] = 'leel';
+        $form['appbundle_grade[student]'] = '';
+        $form['appbundle_grade[exam]'] = '';
 
         $client->submit($form);
 
         $crawler = $client->request('GET', '/admin');
 
-        $link = $crawler->selectLink('delete')->link();
+        $link = $crawler->filter('a.grade_delete')->first()->link();
 
 
         $client->click($link);
 
 
 
-        $client->request('GET', '/admin/student');
+        $client->request('GET', '/admin/');
 
 
         $this->assertContains('Student', $client->getResponse()->getContent());
