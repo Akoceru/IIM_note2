@@ -18,8 +18,12 @@ class ApiControllerTest extends WebTestCase
         $client = static::createClient();
 
         $crawler = $client->request('GET', '/api/students');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertContains('[', $client->getResponse()->getContent());
+        $this->assertTrue(
+            $client->getResponse()->headers->contains(
+                'Content-Type',
+                'application/json'
+            )
+        );
     }
 
     public function testApiGradeList()
@@ -27,8 +31,12 @@ class ApiControllerTest extends WebTestCase
         $client = static::createClient();
 
         $crawler = $client->request('GET', '/api/grade');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertContains('[', $client->getResponse()->getContent());
+        $this->assertTrue(
+            $client->getResponse()->headers->contains(
+                'Content-Type',
+                'application/json'
+            )
+        );
     }
 
     public function testApiExamList()
@@ -36,7 +44,11 @@ class ApiControllerTest extends WebTestCase
         $client = static::createClient();
 
         $crawler = $client->request('GET', '/api/exam');
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertContains('[', $client->getResponse()->getContent());
+        $this->assertTrue(
+            $client->getResponse()->headers->contains(
+                'Content-Type',
+                'application/json'
+            )
+        );
     }
 }

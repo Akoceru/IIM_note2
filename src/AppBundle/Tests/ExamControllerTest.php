@@ -20,7 +20,7 @@ class ExamControllerTest extends WebTestCase
 
         $form = $crawler->selectButton('_submit')->form();
 
-        $form['_username'] = 'adminuser';
+        $form['_username'] = 'admin';
         $form['_password'] = 'admin';
 
 
@@ -42,7 +42,7 @@ class ExamControllerTest extends WebTestCase
 
         $form = $crawler->selectButton('_submit')->form();
 
-        $form['_username'] = 'adminuser';
+        $form['_username'] = 'admin';
         $form['_password'] = 'admin';
 
 
@@ -80,19 +80,10 @@ class ExamControllerTest extends WebTestCase
 
         $form = $crawler->selectButton('_submit')->form();
 
-        $form['_username'] = 'adminuser';
+        $form['_username'] = 'admin';
         $form['_password'] = 'admin';
 
 
-
-        $client->submit($form);
-
-        $crawler = $client->request('POST', '/admin/exam/add');
-
-        $form = $crawler->selectButton('Save')->form();
-
-        $form['appbundle_exam[name]'] = 'another';
-        $form['appbundle_exam[description]'] = 'anotherone';
 
         $client->submit($form);
 
@@ -102,7 +93,6 @@ class ExamControllerTest extends WebTestCase
 
 
         $client->click($link);
-
 
 
         $client->request('GET', '/admin');

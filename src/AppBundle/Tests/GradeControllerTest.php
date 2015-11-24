@@ -20,7 +20,7 @@ class GradeControllerTest extends WebTestCase
 
         $form = $crawler->selectButton('_submit')->form();
 
-        $form['_username'] = 'adminuser';
+        $form['_username'] = 'admin';
         $form['_password'] = 'admin';
 
 
@@ -42,7 +42,7 @@ class GradeControllerTest extends WebTestCase
 
         $form = $crawler->selectButton('_submit')->form();
 
-        $form['_username'] = 'adminuser';
+        $form['_username'] = 'admin';
         $form['_password'] = 'admin';
 
 
@@ -81,20 +81,10 @@ class GradeControllerTest extends WebTestCase
 
         $form = $crawler->selectButton('_submit')->form();
 
-        $form['_username'] = 'adminuser';
+        $form['_username'] = 'admin';
         $form['_password'] = 'admin';
 
 
-
-        $client->submit($form);
-
-        $crawler = $client->request('POST', '/admin/grade/add');
-
-        $form = $crawler->selectButton('Save')->form();
-
-        $form['appbundle_grade[mark]'] = '15';
-        $form['appbundle_grade[student]'] = '';
-        $form['appbundle_grade[exam]'] = '';
 
         $client->submit($form);
 

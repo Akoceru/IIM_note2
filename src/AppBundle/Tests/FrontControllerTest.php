@@ -20,7 +20,7 @@ class FrontControllerTest extends WebTestCase
 
         $form = $crawler->selectButton('_submit')->form();
 
-        $form['_username'] = 'admin';
+        $form['_username'] = 'adminuser';
         $form['_password'] = 'admin';
 
 

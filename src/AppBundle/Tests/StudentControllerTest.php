@@ -14,7 +14,7 @@ class StudentControllerTest extends WebTestCase
 
         $form = $crawler->selectButton('_submit')->form();
 
-        $form['_username'] = 'adminuser';
+        $form['_username'] = 'admin';
         $form['_password'] = 'admin';
 
         $client->submit($form);
@@ -34,7 +34,7 @@ class StudentControllerTest extends WebTestCase
 
         $form = $crawler->selectButton('_submit')->form();
 
-        $form['_username'] = 'adminuser';
+        $form['_username'] = 'admin';
         $form['_password'] = 'admin';
 
 
@@ -73,30 +73,21 @@ class StudentControllerTest extends WebTestCase
 
         $form = $crawler->selectButton('_submit')->form();
 
-        $form['_username'] = 'adminuser';
+        $form['_username'] = 'admin';
         $form['_password'] = 'admin';
 
 
 
         $client->submit($form);
 
-        $crawler = $client->request('POST', '/admin/student/add');
-
-        $form = $crawler->selectButton('Save')->form();
-
-        $form['appbundle_student[email]'] = 'leel@lel.com';
-        $form['appbundle_student[firstName]'] = 'lel';
-        $form['appbundle_student[lastName]'] = 'leel';
-
-        $client->submit($form);
 
         $crawler = $client->request('GET', '/admin');
+
 
         $link = $crawler->filter('a.student_delete')->first()->link();
 
 
         $client->click($link);
-
 
 
         $client->request('GET', '/admin');
