@@ -31,7 +31,7 @@ class StudentController extends Controller
         ]);
     }
     /**
-     * @Route("/student/details/{id}", name="student_details")
+     * @Route("/student/details/{id}", name="student_details",defaults={"id"=null}, requirements={"id"="\d+"})
      */
     public function indexIdAction($id)
     {

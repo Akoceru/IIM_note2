@@ -17,8 +17,6 @@ class StudentControllerTest extends WebTestCase
         $form['_username'] = 'adminuser';
         $form['_password'] = 'admin';
 
-
-
         $client->submit($form);
 
         $crawler = $client->request('GET', '/admin');

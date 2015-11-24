@@ -57,7 +57,6 @@ class ExamControllerTest extends WebTestCase
 
 
         $crawler = $client->request('POST', '/admin/exam/add');
-
         $form = $crawler->selectButton('Save')->form();
 
         $form['appbundle_exam[name]'] = 'my new exam';
