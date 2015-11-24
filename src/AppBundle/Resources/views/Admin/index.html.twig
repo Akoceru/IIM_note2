@@ -59,7 +59,7 @@
               <td>{{ admin.username }}</td>
               <td>{{ admin.email }}</td>
               <td>
-                  <a class="glyphicon center-block  glyphicon-trash student_delete" href="{{path ('admin_delete', {id: admin.id}) }}"></a>
+                  <a class="glyphicon center-block  glyphicon-trash admin_delete" href="{{path ('admin_delete', {id: admin.id}) }}"></a>
               </td>
             </tr>
       {% endfor %}
@@ -80,7 +80,7 @@
           <th>Name</th>
           <th>Description</th>
           <th>Date</th>
-          <th>Button</a></th>
+          <th>Button</th>
         </tr>
       </thead>
         <tbody>
